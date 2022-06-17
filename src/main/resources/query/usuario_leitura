@@ -1,0 +1,8 @@
+SQS.USUARIOS.LISTAR=\
+SELECT * \
+FROM usuario;
+
+SQS.USUARIOS.BUSCAR.ID=\
+SELECT * \
+FROM usuario \
+WHERE usu_id = :id

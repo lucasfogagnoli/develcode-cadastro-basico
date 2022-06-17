@@ -1,0 +1,17 @@
+SQI.USUARIO=\
+INSERT INTO usuario ( \
+usu_nome, usu_dt_nascimento, usu_img_blob \
+) VALUES ( \
+:nome, :dt_nascimento, :foto \
+);
+
+SQU.USUARIO=\
+UPDATE usuario SET \
+usu_nome = :nome, \
+usu_dt_nascimento = :dt_nascimento, \
+usu_img_blob = :foto \
+WHERE usu_id = :id;
+
+SQD.USUARIO=\
+DELETE FROM usuario \
+WHERE usu_id = :id;
