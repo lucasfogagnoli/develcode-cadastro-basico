@@ -1,6 +1,7 @@
 package br.com.develcode.cadastro.repository.impl;
 
 import java.util.List;
+import java.util.Objects;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,12 +11,12 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import br.com.develcode.cadastro.domain.UsuarioDto;
 import br.com.develcode.cadastro.repository.UsuarioLeituraRepository;
 
-@Component
+@Repository
 @PropertySource("classpath:query/usuario_leitura")
 public class UsuarioLeituraRepositoryImpl implements UsuarioLeituraRepository {
 
@@ -36,9 +37,7 @@ public class UsuarioLeituraRepositoryImpl implements UsuarioLeituraRepository {
 		List<UsuarioDto> usuarios = jdbcTemplate.query(queryListar,
 				BeanPropertyRowMapper.newInstance(UsuarioDto.class));
 
-		usuarios.forEach(usuario -> logger.info("{}", usuario));
-
-		return usuarios;
+		return Objects.nonNull(usuarios) ? usuarios : null;
 	}
 
 	@Override
@@ -46,7 +45,7 @@ public class UsuarioLeituraRepositoryImpl implements UsuarioLeituraRepository {
 		final MapSqlParameterSource parameter = montarParametro(id);
 
 		return jdbcTemplate.query(queryBuscarId, parameter, BeanPropertyRowMapper.newInstance(UsuarioDto.class))
-				.stream().findFirst().orElse(new UsuarioDto());
+				.stream().findFirst().orElse(null);
 	}
 
 	public MapSqlParameterSource montarParametro(Long id) {

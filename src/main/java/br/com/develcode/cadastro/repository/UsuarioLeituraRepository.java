@@ -9,8 +9,17 @@ import br.com.develcode.cadastro.domain.UsuarioDto;
 @Repository
 public interface UsuarioLeituraRepository {
 
+	/**
+	 * 
+	 * @return uma lista de usuarios
+	 */
 	public List<UsuarioDto> listar();
 
+	/**
+	 * 
+	 * @param id do usuario buscado
+	 * @return o usuario buscado
+	 */
 	public UsuarioDto buscar(Long id);
 
 }

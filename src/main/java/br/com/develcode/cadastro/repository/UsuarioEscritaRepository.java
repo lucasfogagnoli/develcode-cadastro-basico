@@ -1,14 +1,20 @@
 package br.com.develcode.cadastro.repository;
 
-import org.springframework.stereotype.Repository;
-
 import br.com.develcode.cadastro.domain.Usuario;
 
-@Repository
 public interface UsuarioEscritaRepository {
 
-	public void salvarOuAtualizar(Usuario usuario);
+	/**
+	 * 
+	 * @param usuario a ser criado ou deletado
+	 * @return usuario criado ou atualizado
+	 */
+	public Usuario salvarOuAtualizar(Usuario usuario);
 
+	/**
+	 * 
+	 * @param id do usuario a ser deletado
+	 */
 	public void deletar(Long id);
 
 }

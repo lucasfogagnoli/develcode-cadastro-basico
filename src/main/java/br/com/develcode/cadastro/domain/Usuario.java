@@ -13,7 +13,7 @@ public class Usuario {
 
 	private LocalDate dt_nascimento;
 
-	private String foto;
+	private byte[] foto;
 
 	public Usuario() {
 	}
@@ -42,11 +42,11 @@ public class Usuario {
 		this.dt_nascimento = dt_nascimento;
 	}
 
-	public String getFoto() {
+	public byte[] getFoto() {
 		return foto;
 	}
 
-	public void setFoto(String foto) {
+	public void setFoto(byte[] foto) {
 		this.foto = foto;
 	}
 }

@@ -1,16 +1,21 @@
 package br.com.develcode.cadastro.repository.impl;
 
+import java.util.Objects;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.stereotype.Component;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Repository;
 
 import br.com.develcode.cadastro.domain.Usuario;
 import br.com.develcode.cadastro.repository.UsuarioEscritaRepository;
 
-@Component
+@Repository
 @PropertySource("classpath:query/usuario_escrita")
 public class UsuarioEscritaRepositoryImpl implements UsuarioEscritaRepository {
 
@@ -27,28 +32,24 @@ public class UsuarioEscritaRepositoryImpl implements UsuarioEscritaRepository {
 	NamedParameterJdbcTemplate jdbcTemplate;
 
 	@Override
-	public void salvarOuAtualizar(Usuario usuario) {
-		String query = inserirUsuario;
-		final MapSqlParameterSource parameter = montarParametro(usuario);
+	public Usuario salvarOuAtualizar(Usuario usuario) {
+		BeanPropertySqlParameterSource parameter = new BeanPropertySqlParameterSource(usuario);
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+		if (Objects.nonNull(usuario)) {
+			String query = inserirUsuario;
 
-		if (usuario.getId() != null) {
-			query = atualizarUsuario;
-			System.out.println(jdbcTemplate.update(query, parameter));
-		} else {
-			System.out.println(jdbcTemplate.update(query, parameter));
+			if (Objects.nonNull(usuario.getId()))
+				query = atualizarUsuario;
+
+			jdbcTemplate.update(query, parameter, keyHolder);
+			Long id = recuperarId(keyHolder);
+
+			if (Objects.nonNull(id))
+				usuario.setId(id);
+
+			return usuario;
 		}
-	}
-
-	public MapSqlParameterSource montarParametro(Usuario usuario) {
-		final MapSqlParameterSource parameter = new MapSqlParameterSource();
-		if (usuario.getId() != null) {
-			parameter.addValue("id", usuario.getId());
-		}
-		parameter.addValue("nome", usuario.getNome());
-		parameter.addValue("dt_nascimento", usuario.getDt_nascimento());
-		parameter.addValue("foto", usuario.getFoto());
-
-		return parameter;
+		return null;
 	}
 
 	@Override
@@ -64,6 +65,10 @@ public class UsuarioEscritaRepositoryImpl implements UsuarioEscritaRepository {
 		parameter.addValue("id", id);
 
 		return parameter;
+	}
+
+	private Long recuperarId(KeyHolder keyHolder) {
+		return Objects.nonNull(keyHolder.getKey()) ? keyHolder.getKey().longValue() : null;
 	}
 
 }

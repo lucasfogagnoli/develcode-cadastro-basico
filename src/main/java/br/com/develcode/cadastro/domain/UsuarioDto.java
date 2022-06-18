@@ -1,6 +1,5 @@
 package br.com.develcode.cadastro.domain;
 
-import java.sql.Blob;
 import java.time.LocalDate;
 
 import org.springframework.data.relational.core.mapping.Table;
@@ -14,7 +13,7 @@ public class UsuarioDto {
 
 	private LocalDate usu_dt_nascimento;
 
-	private Blob usu_img_blob;
+	private byte[] usu_img_blob;
 
 	public UsuarioDto() {
 	}
@@ -43,11 +42,11 @@ public class UsuarioDto {
 		this.usu_dt_nascimento = usu_dt_nascimento;
 	}
 
-	public Blob getUsu_img_blob() {
+	public byte[] getUsu_img_blob() {
 		return usu_img_blob;
 	}
 
-	public void setUsu_img_blob(Blob usu_img_blob) {
+	public void setUsu_img_blob(byte[] usu_img_blob) {
 		this.usu_img_blob = usu_img_blob;
 	}
 
