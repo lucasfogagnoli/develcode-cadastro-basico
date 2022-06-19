@@ -1,0 +1,6 @@
+CREATE TABLE usuario(
+usu_id INT(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+usu_nome VARCHAR(100),
+usu_dt_nascimento DATE,
+usu_img_blob BLOB
+);
