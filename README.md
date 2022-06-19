@@ -11,21 +11,26 @@
 
 ### Resultados
 #### Listar Usuário
-<div>
-     <img src="https://github.com/lucasfogagnoli/develcode-cadastro-basico/blob/main/src/main/resources/img/listarUsuario.png" height="250" width="250" alt="Listar Usuários"/>
+<div align="center">
+     <img src="https://github.com/lucasfogagnoli/develcode-cadastro-basico/blob/main/src/main/resources/img/listarUsuario.png" height="400" width="550" alt="Listar Usuários"/>
 </div>
+
 #### Buscar Usuário
-<div>
-     <img src="https://github.com/lucasfogagnoli/develcode-cadastro-basico/blob/main/src/main/resources/img/buscarUsuario.png" height="250" width="250" alt="Buscar Usuários"/>
+<div align="center">
+     <img src="https://github.com/lucasfogagnoli/develcode-cadastro-basico/blob/main/src/main/resources/img/buscarUsuario.png" height="400" width="550" alt="Buscar Usuários"/>
 </div>
+
 #### Cadastrar Usuário
-<div>
-     <img src="https://github.com/lucasfogagnoli/develcode-cadastro-basico/blob/main/src/main/resources/img/cadastrarUsuario.png" height="250" width="250" alt="Cadastrar Usuários"/>
+<div align="center">
+     <img src="https://github.com/lucasfogagnoli/develcode-cadastro-basico/blob/main/src/main/resources/img/cadastrarUsuario.png" height="400" width="550" alt="Cadastrar Usuários"/>
 </div>
+
 #### Atualizar Usuário
-<div>
-     <img src="https://github.com/lucasfogagnoli/develcode-cadastro-basico/blob/main/src/main/resources/img/atualizarUsuario.png" height="250" width="250" alt="Atualizar Usuários"/>
+<div align="center">
+     <img src="https://github.com/lucasfogagnoli/develcode-cadastro-basico/blob/main/src/main/resources/img/atualizarUsuario.png" height="400" width="550" alt="Atualizar Usuários"/>
 </div>
+
 #### Deletar Usuário
-     <img src="https://github.com/lucasfogagnoli/develcode-cadastro-basico/blob/main/src/main/resources/img/deletarUsuario.png" height="250" width="250" alt="Deletar Usuários"/>
+<div align="center">
+     <img src="https://github.com/lucasfogagnoli/develcode-cadastro-basico/blob/main/src/main/resources/img/deletarUsuario.png" height="400" width="550" alt="Deletar Usuários"/>
 </div>
