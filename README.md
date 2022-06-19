@@ -7,3 +7,5 @@
 | :---: | :---: |
 | src/main/resources/script_tabela | Script usado para criar a tabela no banco MySql. |
 | src/main/resources/Develcode.postman_collection.json | Collection do postman utilizada para acessar os endpoints. |
+
+[My image](github.com/lucasfogagnoli/develcode-cadastro-basico/src/main/resources/img/cachorros.jpg)
